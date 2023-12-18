@@ -1,0 +1,265 @@
+@mixin size($w,$h)
+    width: $w
+    height: $h
+
+
+@mixin center($w,$h)
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate($w,$h)
+
+@mixin background
+    // background-image: url($img)
+        background-size: cover
+        background-position: 50% 70%
+
+    
+$purple: #c4c4ff
+$button: #fff1ab
+$yellow: #ffffab
+$pink: #ffc5c5
+$grey: #E6E6EA
+$matte: #2E2E2E
+$color_background: #fff7f0
+    
+*
+    // border: solid 1px
+    position: relative
+    box-sizing: border-box
+
+
+
+html, body
+    +size(100%,100%)
+    margin: 0px
+    padding: 0px
+
+.picker
+    +size(100%,100%)
+    max-width: 750px
+    min-width: 530px
+    margin-left: auto
+    margin-right: auto
+    border: solid 8px $pink
+    border-radius: 20px
+    font-size: 46px
+    padding: 10px
+    line-height: 150px
+    color: $grey
+    overflow: hidden
+    text-align: center
+
+
+    .show
+        +size(400px,300px)
+        +center(-50%,10%)
+        // border: solid 1px
+        display: none
+        position: absolute
+        line-height: normal
+        .pick
+            // border: solid 1px
+            padding: 15px
+            text-align: center
+            font-size: 30px
+            font-weight: bold
+            color: $matte
+    
+    .img
+        +center(-50%,-100%)
+        +size(50%,42%)
+        border-radius: 100%
+        background-image: url('1.jpg')
+        background-size: cover
+        background-position: 50% 70%
+        border: solid 10px transparent
+
+    .img.ani
+        animation: bordercircle 6s
+    
+    .button
+        +center(-50%,150%)
+        color: $matte
+        padding: 10px
+        line-height: normal
+        border-radius: 10px
+        font-size: 30px
+        font-family: 微軟正黑體
+        font-weight: 600
+        cursor: pointer
+        background-color: $button
+        &:hover
+            background-color: $yellow
+
+
+    svg
+        position: absolute
+        width: 300px
+        left: 60%
+        top: 400px
+        circle
+            opacity: 0
+            stroke-width: 50px
+            stroke-dasharray: 1px
+            stroke: rgba(#f7f414,0.8)
+            fill: $color_background
+        circle.circle
+            animation: firecircle 4s
+            animation-delay: 0.7s
+
+    .svg2
+        left: 0%
+        top: 550px
+        circle.circle
+            animation: firecircle2 4s
+            animation-delay: 1s
+
+
+
+
+
+
+
+
+
+
+// @keyframes bordercircle
+//     0%
+//         border: solid 10px none
+//     25%
+//         border-top: solid 10px rgba($purple,0.5)
+//     50%
+//         border-top: solid 10px $purple
+//         border-right: solid 10px rgba($purple,0.5)
+//     75%
+//         border-top: solid 15px $purple
+//         border-right: solid 10px $purple
+//         border-bottom: solid 10px rgba($purple,0.5)
+//     80%
+//         border-top: solid 10px $purple
+//         border-right: solid 10px $purple
+//         border-bottom: solid 10px $purple
+//         border-left: solid 10px rgba($purple,0.5)
+
+//     100%
+//         border: solid 10px $purple
+
+
+@keyframes bordercircle
+    0%
+        border: solid 10px transparent
+        background-image: url('1.jpg')
+    8%
+        border-top: solid 10px rgba($purple,0.4)
+        background-image: url('1.jpg')
+    15%
+        border-top: solid 10px $purple
+        border-right: solid 10px rgba($purple,0.4)
+        background-image: url('1.jpg')
+    23%
+        border-top: solid 15px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px rgba($purple,0.4)
+        background-image: url('1.jpg')
+    30%
+        border-top: solid 10px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px $purple
+        border-left: solid 10px rgba($purple,0.4)
+        // background-image: url('1.jpg')
+    38%
+        border-top: solid 10px rgba($purple,0.4)
+        background-image: url('2.PNG')
+    45%
+        border-top: solid 10px $purple
+        border-right: solid 10px rgba($purple,0.4)
+        background-image: url('2.PNG')
+    53%
+        border-top: solid 15px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px rgba($purple,0.4)
+        background-image: url('2.PNG')
+    60%
+        border-top: solid 10px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px $purple
+        border-left: solid 10px rgba($purple,0.5)
+        background-image: url('2.PNG')
+    68%
+        border-top: solid 10px rgba($purple,0.5)
+        // background-image: url('3.jpg')
+    75%
+        border-top: solid 10px $purple
+        border-right: solid 10px rgba($purple,0.5)
+        background-image: url('3.jpg')
+    83%
+        border-top: solid 15px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px rgba($purple,0.5)
+        background-image: url('3.jpg')
+    90%
+        border-top: solid 10px $purple
+        border-right: solid 10px $purple
+        border-bottom: solid 10px $purple
+        border-left: solid 10px rgba($purple,0.5)
+        background-image: url('3.jpg')
+
+    100%
+        border: solid 10px $purple
+        background-image: url('3.jpg')
+
+
+
+
+
+@keyframes firecircle
+    0%
+        opacity: 0
+    25%
+        opacity: 1
+        stroke: rgba(#B5DD8C,0.8)
+        stroke-width: 50px        
+    50%
+        opacity: 1
+        stroke: rgba(#ddb48c,0.8)
+        stroke-width: 30px 
+         
+    75%
+        opacity: 1
+        stroke: rgba(#4262ff,0.5)
+        stroke-width: 65px
+
+    100%
+        opacity: 0
+
+@keyframes firecircle2
+    0%
+        opacity: 0
+        stroke-width: 20px
+    25%
+        opacity: 1
+        stroke: rgba(#36373a,0.7)
+        stroke-width: 20px
+    50%
+        opacity: 1
+        stroke: rgba(#B5DD8C,0.8)
+        stroke-width: 50px
+         
+    75%
+        opacity: 1
+        stroke: rgba(#ddb48c,1)
+        stroke-width: 20px
+
+    100%
+        opacity: 0
+        stroke-width: 20px
+
+
+@media only screen and (max-width: 750px)
+    .picker
+        
+
+        .img
+            +size(350px,350px)
+            +center(-50%,-110%)
